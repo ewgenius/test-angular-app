@@ -1,7 +1,7 @@
-function config ($logProvider) {
+function config ($logProvider, localStorageServiceProvider) {
   'ngInject';
-  // Enable log
-  $logProvider.debugEnabled(true);
+
+  localStorageServiceProvider.setPrefix('test-shop-app');
 }
 
 export default config;

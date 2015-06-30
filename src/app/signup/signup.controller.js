@@ -1,11 +1,13 @@
 class SignupController {
-  constructor($scope) {
+  constructor($scope, $location, AuthService) {
     'ngInject';
 
     $scope.user = {};
 
     $scope.submit = () => {
-      return false;
+      if (!$scope.passwordInvalid && $scope.signup.email.$valid)
+        AuthService.signup($scope.user.email, $scope.user.password);
+        $location.path('/main');
     };
 
     $scope.validatePassword = () => {

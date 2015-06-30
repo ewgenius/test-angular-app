@@ -1,6 +1,10 @@
-function runBlock ($log) {
+function runBlock($rootScope, $location, AuthService) {
   'ngInject';
-  $log.debug('runBlock end');
+
+  $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
+    //if (!AuthService.isAuthorized())
+    //  $location.path('/login');
+  });
 }
 
 export default runBlock;
