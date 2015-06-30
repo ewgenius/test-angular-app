@@ -1,16 +1,15 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
-      a.navbar-brand(href='https://github.com/Swiip/generator-gulp-angular')
-        span.glyphicon.glyphicon-home
-        |  Gulp Angular
-    #bs-example-navbar-collapse-6.collapse.navbar-collapse
+      .navbar-brand(ng-if="currentUser !== null") {{currentUser.email}}
+    #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
-          a(ng-href='#') Home
+        li(ng-if="currentUser === null")
+          a(href='/#/signup') sign up
+        li(ng-if="currentUser === null")
+          a(href='/#/login') login
+        li(ng-if="currentUser !== null")
+          a(ng-click="logout()") logout
+      ul.nav.navbar-nav.navbar-right.acme-navbar-text
         li
-          a(ng-href='#') About
-        li
-          a(ng-href='#') Contact
-//      ul.nav.navbar-nav.navbar-right.acme-navbar-text
-        li Application was created {{ vm.relativeDate }}.
+          a card {{currentUser.card.count}}

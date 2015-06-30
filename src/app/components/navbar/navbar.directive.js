@@ -15,8 +15,16 @@ class NavbarDirective {
 }
 
 class NavbarController {
-  constructor () {
+  constructor ($scope, $location, AuthService) {
     'ngInject';
+
+    $scope.currentUser = AuthService.currentUser;
+
+    $scope.logout = () => {
+      AuthService.logout();
+      $location.path('/login');
+      return false;
+    };
   }
 }
 
