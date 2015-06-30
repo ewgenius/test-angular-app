@@ -1,4 +1,3 @@
-/* global malarkey:false, toastr:false, moment:false */
 import config from './index.config';
 
 import routerConfig from './index.route';
@@ -9,11 +8,16 @@ import LoginController from './login/login.controller';
 import SignupController from './signup/signup.controller';
 import NavbarDirective from '../app/components/navbar/navbar.directive';
 
-angular.module('testEshopApp', ['restangular', 'ui.router', 'ui.bootstrap'])
+angular.module('testEshopApp', [
+    'restangular',
+    'ui.router',
+    'ui.bootstrap',
+    'LocalStorageModule'
+  ])
   .config(config)
-
   .config(routerConfig)
-
   .run(runBlock)
+  .controller('LoginController', LoginController)
+  .controller('SignupController', SignupController)
   .controller('MainController', MainController)
   .directive('navbar', () => new NavbarDirective());
