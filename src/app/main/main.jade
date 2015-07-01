@@ -26,10 +26,10 @@ navbar
       select.form-control
   
   br
-  
+    
   .grid
     .card(ng-repeat="item in items"): .row
-      .col-sm-3: img(src="{{item.image}}")
+      .col-sm-3: img(ng-src="{{item.image}}")
       .col-sm-3
         | {{item.name}}
         br
@@ -44,6 +44,6 @@ navbar
         | {{item.price}}
         br
         br
-        button.btn.btn.btn-primary() order
+        button.btn.btn.btn-primary(ng-disabled="!authorized") order
       
         

@@ -1,6 +1,12 @@
 class MainController {
-  constructor($scope) {
+  constructor($scope, $rootScope, AuthService) {
     'ngInject';
+
+    $scope.authorized = AuthService.isAuthorized();
+
+    $rootScope.$on('auth.logout', () => {
+      $scope.authorized = false;
+    });
 
     $scope.colors = {
       red: '#000000',

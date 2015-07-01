@@ -1,10 +1,11 @@
 class AuthService {
-  constructor(localStorageService) {
+  constructor($rootScope, localStorageService) {
     'ngInject';
 
     this.currentUser = null;
     this.authorized = false;
     this.localStorageService = localStorageService;
+    this.$rootScope = $rootScope;
   }
 
   /**
@@ -41,6 +42,7 @@ class AuthService {
   logout() {
     this.currentUser = null;
     this.authorized = false;
+    this.$rootScope.$broadcast('auth.logout');
   }
 
   /**
