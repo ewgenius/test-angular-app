@@ -3,13 +3,13 @@ navbar
   form.form-inline
     .form-group
       label.control-label(for="dateFrom") From
-      input.form-control#dateFrom(type="date", name="dateFrom")
+      input.form-control#dateFrom(type="date", name="dateFrom", ng-model="filter.dateFrom")
     .form-group
       label.control-label(for="dateTo") to
-      input.form-control#dateTo(type="date", name="dateTo")
+      input.form-control#dateTo(type="date", name="dateTo", ng-model="filter.dateTo")
     .form-group
       .checkbox: label
-        input(type="checkbox")
+        input(type="checkbox", ng-model="filter.inStock")
         | &nbsp;In stock only
   
   br      
@@ -17,13 +17,13 @@ navbar
   form.form-inline
     .form-group
       label.control-label(for="priceFrom") From
-      input.form-control#priceFrom(type="text", name="priceFrom")
+      input.form-control#priceFrom(type="number", step="0.01", name="priceFrom", ng-model="filter.priceFrom")
     .form-group
       label.control-label(for="priceTo") to
-      input.form-control#priceTo(type="text", name="priceTo")
+      input.form-control#priceTo(type="number", step="0.01", name="priceTo", ng-model="filter.priceTo")
     .form-group
       label Color
-      select.form-control
+      select.form-control(ng-options="color as color for color in colors", ng-model="filter.color")
   
   br
     

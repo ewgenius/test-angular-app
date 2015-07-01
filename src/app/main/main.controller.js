@@ -8,14 +8,17 @@ class MainController {
       $scope.authorized = false;
     });
 
-    $scope.colors = {
-      red: '#000000',
-      white: '#000000',
-      black: '#000000',
-      blue: '#000000',
-      yellow: '#000000',
-      green: '#000000'
+    $scope.filter = {
     };
+
+    $scope.colors = [
+      'red',
+      'white',
+      'black',
+      'blue',
+      'yellow',
+      'green'
+    ];
 
     $scope.items = [{
       id: 0,
