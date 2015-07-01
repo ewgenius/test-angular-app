@@ -22,7 +22,7 @@ class NavbarController {
 
     $scope.logout = () => {
       AuthService.logout();
-      $location.path('/login');
+      $scope.currentUser = AuthService.currentUser;
       return false;
     };
   }

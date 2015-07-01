@@ -1,16 +1,49 @@
 navbar
 .container
-  .row
-    .col-md-4 From
-    .col-md-4 To
-    .col-md-4: input(type="checkbox")
-  .row
-    .col-md-6
-      | Price from
-      input.form-control
-      | to
-      input.form-control
-    .col-md-6
-      | Color
-      select
+  form.form-inline
+    .form-group
+      label.control-label(for="dateFrom") From
+      input.form-control#dateFrom(type="date", name="dateFrom")
+    .form-group
+      label.control-label(for="dateTo") to
+      input.form-control#dateTo(type="date", name="dateTo")
+    .form-group
+      .checkbox: label
+        input(type="checkbox")
+        | &nbsp;In stock only
+  
+  br      
+  
+  form.form-inline
+    .form-group
+      label.control-label(for="priceFrom") From
+      input.form-control#priceFrom(type="text", name="priceFrom")
+    .form-group
+      label.control-label(for="priceTo") to
+      input.form-control#priceTo(type="text", name="priceTo")
+    .form-group
+      label Color
+      select.form-control
+  
+  br
+  
+  .grid
+    .card(ng-repeat="item in items"): .row
+      .col-sm-3: img(src="{{item.image}}")
+      .col-sm-3
+        | {{item.name}}
+        br
+        br
+        | {{item.color}}
+      .col-sm-3
+        | {{item.issueDate}}
+        br
+        br
+        | {{item.inStock}}
+      .col-sm-3
+        | {{item.price}}
+        br
+        br
+        button.btn.btn.btn-primary() order
+      
         

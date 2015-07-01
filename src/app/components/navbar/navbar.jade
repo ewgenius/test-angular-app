@@ -9,7 +9,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         li(ng-if="currentUser === null")
           a(href='/#/login') login
         li(ng-if="currentUser !== null")
-          a(ng-click="logout()") logout
+          a(href="#/", ng-click="logout()") logout
       ul.nav.navbar-nav.navbar-right.acme-navbar-text
         li
           a card {{currentUser.card.count}}

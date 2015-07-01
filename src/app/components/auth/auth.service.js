@@ -7,10 +7,13 @@ class AuthService {
     this.localStorageService = localStorageService;
   }
 
-  init() {
-
-  }
-
+  /**
+   * perform login. checks user email
+   * and password in local storage
+   * @param  {string} email
+   * @param  {string} password
+   * @return true if user exists and password is right, or error description
+   */
   login(email, password) {
     var pass = this.localStorageService.get(email);
     if (pass === null) {
@@ -32,15 +35,28 @@ class AuthService {
     }
   }
 
+  /**
+   * simple logout
+   */
   logout() {
     this.currentUser = null;
     this.authorized = false;
   }
 
+  /**
+   * sign up user with specified email and password
+   * in local storage
+   * @param  {string} email
+   * @param  {string} password
+   */
   signup(email, password) {
     this.localStorageService.set(email, jhash.hash(password));
   }
 
+  /**
+   * checks if current user is authorized
+   * @return {Boolean}
+   */
   isAuthorized() {
     return this.authorized;
   }
